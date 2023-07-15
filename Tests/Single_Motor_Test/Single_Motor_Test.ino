@@ -8,10 +8,12 @@
 
 #define DIR 8
 #define STEP 9
-BasicStepperDriver stepper(MOTOR_STEPS, DIR, STEP);
+#define ENABLE 10
+BasicStepperDriver stepper(MOTOR_STEPS, DIR, STEP, ENABLE);
 
 void setup() {
     stepper.begin(RPM, MICROSTEPS);
+    stepper.setEnableActiveState(LOW);
 }
 
 void loop() {
