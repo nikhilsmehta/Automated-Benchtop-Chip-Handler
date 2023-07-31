@@ -1,9 +1,12 @@
 import pyautogui
 import time
+import serial
+
+ser = serial.Serial('COM3', 9600)
 
 x_global = 0
 y_global = 0
-z_global = 0
+z_global = -1.5
 
 
 def home_machine():
@@ -61,13 +64,25 @@ def go_to_position(x, y, z, feedrate):
 
 def pickup_chip():
     global z_global
-    z_drop_position = 0
-    z_global = z_drop_position
-    go_to_position(0, 0, z_drop_position, 300)
+    global x_global
+    global y_global
+    z_drop_position = -2.389
+    move_z = z_drop_position - z_global
+    go_to_position(x_global, y_global, z_drop_position, 1000)
+    z_drop_position = z_global
+    ser.write(b"H")
+    go_to_position(x_global, y_global, -1.5, 1000)
+    z_global = -1.5
 
 
 def drop_chip():
     global z_global
-    z_drop_position = 0
-    z_global = z_drop_position
-    go_to_position(0, 0, z_drop_position, 300)
+    global x_global
+    global y_global
+    z_drop_position = -2.388
+    move_z = z_drop_position - z_global
+    go_to_position(x_global, y_global, z_drop_position, 1000)
+    z_drop_position = z_global
+    ser.write(b"L")
+    go_to_position(x_global, y_global, -1.5, 1000)
+    z_global = -1.5

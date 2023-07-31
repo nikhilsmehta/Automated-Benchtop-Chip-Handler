@@ -1,14 +1,10 @@
 from movements import *
 import time
 
-time.sleep(10)
+time.sleep(5)
 
 for i in range(10):
-    move_machine(0, 0, -0.5, 500)
-    time.sleep(3)
-    move_machine(0, 0, 0.5, 500)
-    move_machine(-5.4, 11.625, 0, 9000)
-    move_machine(0, 0, -0.5, 500)
-    time.sleep(3)
-    move_machine(0, 0, 0.5, 500)
-    move_machine(5.4 - 0.508, -11.625, 0, 9000)
+    go_to_position(14.145 - (0.50393701 * (i)), 1.020, -1.5, 13000)
+    pickup_chip()
+    go_to_position(8.758 - (0.50393701 * (i)), 12.641, -1.5, 13000)
+    drop_chip()
