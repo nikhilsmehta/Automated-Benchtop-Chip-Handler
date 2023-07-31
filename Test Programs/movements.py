@@ -37,13 +37,13 @@ def home_machine():
 
 
 def check_completed():
-    time.sleep(0.1)
+    time.sleep(0.05)
     while True:
         if pyautogui.pixel(250, 151) == (128, 128, 128):
             print("Coordinate Achieved" + str())
             break
         else:
-            time.sleep(0.5)
+            time.sleep(0.05)
 
 
 def move_machine(x, y, z, feedrate):
