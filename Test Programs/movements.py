@@ -8,13 +8,13 @@ ser = serial.Serial('COM3', 9600)
 # global coordinates init
 x_global = 0
 y_global = 0
-z_global = -1.5
+z_global = -2
 
 # z-constants init
-z_drop_position_tray = -2.389
+z_drop_position_tray = -2.385
 z_drop_position_testboard = -1
 z_drop_position_shuttle = -1
-z_idling_position = -1.5
+z_idling_position = -2
 
 
 def home_machine():
