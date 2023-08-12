@@ -14,7 +14,6 @@ z_global = -2
 z_drop_position_tray = -2.385
 z_drop_position_testboard = -1
 z_drop_position_shuttle = -1
-z_pick_position_shuttle = -1
 z_idling_position = -2
 
 
@@ -74,14 +73,14 @@ def pickup_chip(location):
     global x_global
     global y_global
     global z_drop_position_tray
-    global z_pick_position_shuttle
+    global z_drop_position_shuttle
     global z_drop_position_testboard
     global z_idling_position
 
     if location == "tray":
         z_drop_position = z_drop_position_tray
     elif location == "shuttle":
-        z_drop_position = z_pick_position_shuttle
+        z_drop_position = z_drop_position_shuttle
     else:
         z_drop_position = z_drop_position_testboard
 
